@@ -53,7 +53,27 @@ public class ReducedFraction {
     
     /** Сложение двух дробей.
     * 
-    */ 
+    */
+    public ReducedFraction add(int numerator, int denominator){
+        if (this._denominator != denominator){
+            this._numerator = this._numerator * denominator + numerator * this._denominator;
+            this._denominator *= denominator;
+            return new ReducedFraction(this._numerator, this._denominator);
+        }
+        else
+            return new ReducedFraction(this._numerator + numerator, denominator);
+    }
+
+
+    public ReducedFraction add(ReducedFraction fraction){
+        if (this._denominator != fraction._denominator){
+            this._numerator = this._numerator * fraction._denominator + fraction._numerator * this._denominator;
+            this._denominator *= fraction._denominator;
+            return new ReducedFraction(this._numerator, this._denominator);
+        }
+        else
+            return new ReducedFraction(this._numerator + fraction._numerator, fraction._denominator);
+    }
 
     /** Вычитание двух дробей.
     * 

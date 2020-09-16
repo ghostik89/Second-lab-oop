@@ -101,7 +101,17 @@ public class ReducedFraction {
 
     /** Умножение двух дробей.
     * 
-    */ 
+    */
+    public ReducedFraction multiply(int numerator, int denominator){
+        return new ReducedFraction(this._numerator * numerator,
+                this._denominator * denominator);
+    }
+
+
+    public ReducedFraction multiply(ReducedFraction fraction){
+        return new ReducedFraction(this._numerator * fraction._numerator,
+                this._denominator * fraction._denominator);
+    }
     
     /** Деление двух дробей.
     * 

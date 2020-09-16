@@ -115,7 +115,17 @@ public class ReducedFraction {
     
     /** Деление двух дробей.
     * 
-    */ 
+    */
+    public ReducedFraction division(int numerator, int denominator){
+        return new ReducedFraction(this._numerator * denominator,
+                this._denominator * numerator);
+    }
+
+
+    public ReducedFraction division(ReducedFraction fraction){
+        return new ReducedFraction(this._numerator * fraction._denominator,
+                this._denominator * fraction._numerator);
+    }
 
 
     /* --------------------- Операции сравнения ---------------------- */

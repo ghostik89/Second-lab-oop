@@ -44,7 +44,7 @@ public class ReducedFraction {
     /** Создание дроби на основе целого числа.
     * 
     */
-    public static ReducedFraction createReducedFracionFromNumber(int number){
+    public static ReducedFraction createReducedFractionFromNumber(int number){
         return new ReducedFraction(number, 1);
     }
     

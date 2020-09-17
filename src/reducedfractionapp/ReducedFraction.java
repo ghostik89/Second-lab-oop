@@ -136,7 +136,15 @@ public class ReducedFraction {
     
     /** Эквивалентность двух дробей.
     * 
-    */     
+    */
+    @Override
+    public boolean equals(Object other){
+        if(other == null || !(other instanceof ReducedFraction))
+            return false;
+
+        ReducedFraction fraction = (ReducedFraction)other;
+        return fraction._numerator == this._numerator && fraction._denominator == this._denominator;
+    }
 
     
     /* --------------------- Операции преобразования ---------------------- */

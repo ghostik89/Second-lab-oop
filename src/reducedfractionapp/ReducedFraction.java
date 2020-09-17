@@ -136,28 +136,11 @@ public class ReducedFraction {
     /** Сравнение двух дробей.
     * 
     */
-    public boolean more(int numerator, int denominator){
-        if (this._denominator != denominator)
-            return this._numerator*denominator > numerator*this._denominator;
-        return this._numerator > numerator;
-    }
-
-    public boolean more(ReducedFraction fraction){
-        if (this._denominator != fraction._denominator)
-            return this._numerator*fraction._denominator > fraction._numerator*this._denominator;
-        return this._numerator > fraction._numerator;
-    }
-
-    public boolean less(int numerator, int denominator){
-        if (this._denominator != denominator)
-            return this._numerator*denominator < numerator*this._denominator;
-        return this._numerator < numerator;
-    }
-
-    public boolean less(ReducedFraction fraction){
-        if (this._denominator != fraction._denominator)
-            return this._numerator*fraction._denominator < fraction._numerator*this._denominator;
-        return this._numerator < fraction._numerator;
+    public int compare(int numerator, int denominator){
+        if(denominator != this._denominator)
+            return Integer.compare(this._numerator*denominator, numerator*this._denominator);
+        else
+            return Integer.compare(this._numerator, numerator);
     }
     
     /** Эквивалентность двух дробей.

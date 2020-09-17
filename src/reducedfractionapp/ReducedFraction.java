@@ -185,5 +185,8 @@ public class ReducedFraction {
 
     /** Представить как вещественное число.
     * 
-    */     
+    */
+    public double toDouble(){
+        return (double)this._numerator/this._denominator;
+    }
 }

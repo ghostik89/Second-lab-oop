@@ -28,6 +28,9 @@ public class ReducedFraction {
     *
     * */
     private ReducedFraction(int numerator, int denominator){
+        if(denominator == 0)
+            throw new ArithmeticException("Division to zero!");
+
         int tempGCD = gcd(numerator, denominator);
         this._numerator = numerator / tempGCD;
         this._denominator = denominator / tempGCD;

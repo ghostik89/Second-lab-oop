@@ -165,7 +165,7 @@ public class ReducedFraction {
     */
     @Override
     public boolean equals(Object other){
-        if(other == null || !(other instanceof ReducedFraction))
+        if(!(other instanceof ReducedFraction))
             return false;
 
         ReducedFraction fraction = (ReducedFraction)other;

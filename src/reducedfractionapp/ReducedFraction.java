@@ -7,8 +7,8 @@ public class ReducedFraction {
     /* =========================== Свойства =============================== */
  
     /* ---------------------- Числитель и знаменатель --------------------- */
-    private int _numerator = 1;
-    private int _denominator = 1;
+    private int _numerator;
+    private int _denominator;
     
     
     /* =========================== Операции ============================== */

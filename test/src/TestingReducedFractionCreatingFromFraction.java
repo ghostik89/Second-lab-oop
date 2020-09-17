@@ -1,11 +1,10 @@
-
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import reducedfractionapp.ReducedFraction;
 
-public class TestingReducedFraction {
+public class TestingReducedFractionCreatingFromFraction {
 
-    @Test
+    @Test()
     void simplyCreatingNotReducedFraction() {
         ReducedFraction tested = ReducedFraction.createReducedFraction(2,4);
         final ReducedFraction waitingValue = ReducedFraction.createReducedFraction(1,2);
@@ -39,9 +38,11 @@ public class TestingReducedFraction {
 
     @Test
     void exceptionForZero() {
-        ReducedFraction tested = ReducedFraction.createReducedFraction(2,4);
-        final ReducedFraction waitingValue = ReducedFraction.createReducedFraction(1,2);
-
-        Assert.assertEquals(tested, waitingValue);
+        try{
+            ReducedFraction tested = ReducedFraction.createReducedFraction(2,0);
+        }catch (IllegalArgumentException e){
+            Assert.assertEquals(e.getMessage(), "Division to zero!");
+        }
     }
+
 }

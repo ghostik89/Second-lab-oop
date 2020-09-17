@@ -177,7 +177,11 @@ public class ReducedFraction {
     
     /** Представить как строку.
     * 
-    */     
+    */
+    @Override
+    public String toString(){
+        return String.format("Numerator: %d, Denominator: %d", this._numerator, this._denominator);
+    }
 
     /** Представить как вещественное число.
     * 

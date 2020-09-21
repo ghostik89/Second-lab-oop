@@ -28,8 +28,10 @@ public class ReducedFraction {
     *
     * */
     private ReducedFraction(int numerator, int denominator){
-        if(denominator == 0)
-            throw new IllegalArgumentException("Division to zero!");
+        if(denominator == 0){
+            this._numerator = 0;
+            this._denominator = 0;
+        }
 
         int tempGCD = gcd(numerator, denominator);
         this._numerator = numerator / tempGCD;
@@ -141,6 +143,13 @@ public class ReducedFraction {
             return Integer.compare(this._numerator*denominator, numerator*this._denominator);
         else
             return Integer.compare(this._numerator, numerator);
+    }
+
+    public int compare(ReducedFraction compared){
+        if(compared._denominator != this._denominator)
+            return Integer.compare(this._numerator*compared._denominator, compared._numerator*this._denominator);
+        else
+            return Integer.compare(this._numerator, compared._numerator);
     }
     
     /** Эквивалентность двух дробей.

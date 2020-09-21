@@ -38,11 +38,10 @@ public class TestingReducedFractionCreatingFromFraction {
 
     @Test
     void exceptionForZero() {
-        try{
-            ReducedFraction tested = ReducedFraction.createReducedFraction(2,0);
-        }catch (IllegalArgumentException e){
-            Assert.assertEquals(e.getMessage(), "Division to zero!");
-        }
+        ReducedFraction tested = ReducedFraction.createReducedFraction(5,0);
+        final ReducedFraction waitingValue = ReducedFraction.createReducedFraction(0,0);
+
+        Assert.assertEquals(tested, waitingValue);
     }
 
 }

@@ -6,40 +6,40 @@ public class TestingReducedFractionCreatingFromFraction {
 
     @Test()
     void simplyCreatingNotReducedFraction() {
-        ReducedFraction tested = ReducedFraction.createReducedFraction(2,4);
-        final ReducedFraction waitingValue = ReducedFraction.createReducedFraction(1,2);
+        ReducedFraction tested = new ReducedFraction(2,4);
+        final ReducedFraction waitingValue = new ReducedFraction(1,2);
 
         Assert.assertEquals(tested, waitingValue);
     }
 
     @Test
     void simplyNegativeCreating() {
-        ReducedFraction tested = ReducedFraction.createReducedFraction(-2,4);
-        final ReducedFraction waitingValue = ReducedFraction.createReducedFraction(-1,2);
+        ReducedFraction tested = new ReducedFraction(-2,4);
+        final ReducedFraction waitingValue = new ReducedFraction(-1,2);
 
         Assert.assertEquals(tested, waitingValue);
     }
 
     @Test
     void allNegativeCreating() {
-        ReducedFraction tested = ReducedFraction.createReducedFraction(-2,-4);
-        final ReducedFraction waitingValue = ReducedFraction.createReducedFraction(1,2);
+        ReducedFraction tested = new ReducedFraction(-2,-4);
+        final ReducedFraction waitingValue = new ReducedFraction(1,2);
 
         Assert.assertEquals(tested, waitingValue);
     }
 
     @Test
     void primeNumberCreating() {
-        ReducedFraction tested = ReducedFraction.createReducedFraction(5,13);
-        final ReducedFraction waitingValue = ReducedFraction.createReducedFraction(5,13);
+        ReducedFraction tested = new ReducedFraction(5,13);
+        final ReducedFraction waitingValue = new ReducedFraction(5,13);
 
         Assert.assertEquals(tested, waitingValue);
     }
 
     @Test
     void exceptionForZero() {
-        ReducedFraction tested = ReducedFraction.createReducedFraction(5,0);
-        final ReducedFraction waitingValue = ReducedFraction.createReducedFraction(0,0);
+        ReducedFraction tested = new ReducedFraction(5,0);
+        final ReducedFraction waitingValue = new ReducedFraction(0,0);
 
         Assert.assertEquals(tested, waitingValue);
     }

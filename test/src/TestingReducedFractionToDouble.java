@@ -5,14 +5,14 @@ import reducedfractionapp.ReducedFraction;
 public class TestingReducedFractionToDouble {
     @Test()
     void simplyToDouble() {
-        ReducedFraction tested = ReducedFraction.createReducedFraction(2,4);
+        ReducedFraction tested = new ReducedFraction(2,4);
         final double waitingValue = 0.5;
         Assert.assertTrue(tested.toDouble() - waitingValue < 0.00001);
     }
 
     @Test()
     void fromNumber() {
-        ReducedFraction tested = ReducedFraction.createReducedFractionFromNumber(2);
+        ReducedFraction tested = new ReducedFraction(2);
         final double waitingValue = 2.0;
         Assert.assertTrue(tested.toDouble() - waitingValue < 0.00001);
     }

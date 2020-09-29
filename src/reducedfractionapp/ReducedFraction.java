@@ -32,33 +32,25 @@ public class ReducedFraction {
     * @param numerator - числитель
      * @param denominator - знаменатель
     * */
-    private ReducedFraction(int numerator, int denominator){
+    public ReducedFraction(int numerator, int denominator){
         if(denominator == 0){
             this._numerator = 0;
             this._denominator = 0;
         }
-
-        int tempGCD = gcd(numerator, denominator);
-        this._numerator = numerator / tempGCD;
-        this._denominator = denominator / tempGCD;
+        else {
+            int tempGCD = gcd(numerator, denominator);
+            this._numerator = numerator / tempGCD;
+            this._denominator = denominator / tempGCD;
+        }
     }
 
-
-    /** Создание дроби с указанием ее числителя и знаменателя.
-    * @param numerator - числитель
-     * @param denominator - знаменатель
-     * @return новый экземпляр ReducedFraction
-    */
-    public static ReducedFraction createReducedFraction(int numerator, int denominator){
-        return new ReducedFraction(numerator, denominator);
-    }
 
     /** Создание дроби на основе целого числа.
     * @param number - целое число
-     * @return новый экземпляр ReducedFraction
     */
-    public static ReducedFraction createReducedFractionFromNumber(int number){
-        return new ReducedFraction(number, 1);
+    public ReducedFraction(int number){
+        this._numerator = number;
+        this._denominator = 1;
     }
     
   

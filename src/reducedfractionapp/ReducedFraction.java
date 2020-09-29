@@ -69,7 +69,7 @@ public class ReducedFraction {
      * @param numerator - числитель
      * @return новая дробь - результат сложения
     */
-    public ReducedFraction add(int numerator, int denominator){
+    public ReducedFraction sum(int numerator, int denominator){
         if (this._denominator != denominator){
             this._numerator = this._numerator * denominator + numerator * this._denominator;
             this._denominator *= denominator;
@@ -84,7 +84,7 @@ public class ReducedFraction {
      * @param fraction - дробь для сложения
      * @return новая дробь - результат сложения
      * */
-    public ReducedFraction add(ReducedFraction fraction){
+    public ReducedFraction sum(ReducedFraction fraction){
         if (this._denominator != fraction._denominator){
             this._numerator = this._numerator * fraction._denominator + fraction._numerator * this._denominator;
             this._denominator *= fraction._denominator;

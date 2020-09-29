@@ -42,7 +42,7 @@ public class TestingReducedFractionCreatingFromFraction {
         final ReducedFraction waitingValue = new ReducedFraction(0,0);
 
         Assert.assertEquals(tested.get_numerator(), 0);
-        Assert.assertEquals(tested.get_denominator(), 0);
+        Assert.assertEquals(tested.get_denominator(), 1);
     }
 
 

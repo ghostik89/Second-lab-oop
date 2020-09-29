@@ -42,7 +42,7 @@ public class ReducedFraction {
     public ReducedFraction(int numerator, int denominator){
         if(denominator == 0){
             this._numerator = 0;
-            this._denominator = 0;
+            this._denominator = 1;
         }
         else {
             int tempGCD = gcd(numerator, denominator);

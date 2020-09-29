@@ -35,7 +35,7 @@ public class ReducedFraction {
         return a;
     }
 
-    /** Конструктор класса. При создании
+    /** Конструктор класса. При создании неправильной дроби = 0/1
     * @param numerator - числитель
      * @param denominator - знаменатель
     * */

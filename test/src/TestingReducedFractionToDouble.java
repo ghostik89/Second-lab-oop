@@ -16,4 +16,11 @@ public class TestingReducedFractionToDouble {
         final double waitingValue = 2.0;
         Assert.assertTrue(tested.toDouble() - waitingValue < 0.00001);
     }
+
+    @Test()
+    void fromZeroNumber() {
+        ReducedFraction tested = new ReducedFraction(0);
+        final double waitingValue = 0.0;
+        Assert.assertTrue(tested.toDouble() - waitingValue < 0.00001);
+    }
 }

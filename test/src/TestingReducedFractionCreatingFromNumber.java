@@ -6,16 +6,24 @@ public class TestingReducedFractionCreatingFromNumber {
     @Test
     void simplyCreatingFractionFromNumber() {
         ReducedFraction tested = new ReducedFraction(23);
-        final ReducedFraction waitingValue = new ReducedFraction(23,1);
 
-        Assert.assertEquals(tested, waitingValue);
+        Assert.assertEquals(tested.get_numerator(), 23);
+        Assert.assertEquals(tested.get_denominator(), 1);
     }
 
     @Test
     void simplyCreatingFractionFromNegativeNumber() {
         ReducedFraction tested = new ReducedFraction(-23);
-        final ReducedFraction waitingValue = new ReducedFraction(-23,1);
 
-        Assert.assertEquals(tested, waitingValue);
+        Assert.assertEquals(tested.get_numerator(), -23);
+        Assert.assertEquals(tested.get_denominator(), 1);
+    }
+
+    @Test
+    void simplyCreatingFractionFromZero() {
+        ReducedFraction tested = new ReducedFraction(0);
+
+        Assert.assertEquals(tested.get_numerator(), 0);
+        Assert.assertEquals(tested.get_denominator(), 1);
     }
 }

@@ -41,4 +41,14 @@ public class TestingReducedFractionMultiply {
 
         Assert.assertEquals(multiplyed, waitingValue);
     }
+
+    @Test
+    void multiplyZeroFraction() {
+        ReducedFraction tested1 = new ReducedFraction(0,4);
+        ReducedFraction tested2 = new ReducedFraction(2,4);
+        ReducedFraction multiplyed = tested1.multiply(tested2);
+        final ReducedFraction waitingValue = new ReducedFraction(0,1);
+
+        Assert.assertEquals(multiplyed, waitingValue);
+    }
 }

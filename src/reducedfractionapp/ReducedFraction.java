@@ -9,8 +9,15 @@ public class ReducedFraction {
     /* ---------------------- Числитель и знаменатель --------------------- */
     private int _numerator;   //числитель
     private int _denominator; //знаменатель
-    
-    
+
+    public int get_denominator() {
+        return _denominator;
+    }
+
+    public int get_numerator() {
+        return _numerator;
+    }
+
     /* =========================== Операции ============================== */
 
     /* ---------------------------- Порождение ---------------------------- */
@@ -28,7 +35,7 @@ public class ReducedFraction {
         return a;
     }
 
-    /** Конструктор класса
+    /** Конструктор класса. При создании
     * @param numerator - числитель
      * @param denominator - знаменатель
     * */
@@ -41,11 +48,16 @@ public class ReducedFraction {
             int tempGCD = gcd(numerator, denominator);
             this._numerator = numerator / tempGCD;
             this._denominator = denominator / tempGCD;
+
+            if(this._denominator < 0){
+                this._numerator = -this._numerator;
+                this._denominator = -this._denominator;
+            }
         }
     }
 
 
-    /** Создание дроби на основе целого числа.
+    /** Конструктор класса
     * @param number - целое число
     */
     public ReducedFraction(int number){
@@ -77,13 +89,7 @@ public class ReducedFraction {
      * @return новая дробь - результат сложения
      * */
     public ReducedFraction sum(ReducedFraction fraction){
-        if (this._denominator != fraction._denominator){
-            this._numerator = this._numerator * fraction._denominator + fraction._numerator * this._denominator;
-            this._denominator *= fraction._denominator;
-            return new ReducedFraction(this._numerator, this._denominator);
-        }
-        else
-            return new ReducedFraction(this._numerator + fraction._numerator, fraction._denominator);
+        return this.sum(fraction._numerator, fraction._denominator);
     }
 
     /** Вычитание двух дробей.
@@ -106,13 +112,7 @@ public class ReducedFraction {
      * @return новая дробь - результат вычитания
      */
     public ReducedFraction subtract(ReducedFraction fraction){
-        if (this._denominator != fraction._denominator){
-            this._numerator = this._numerator * fraction._denominator - fraction._numerator * this._denominator;
-            this._denominator *= fraction._denominator;
-            return new ReducedFraction(this._numerator, this._denominator);
-        }
-        else
-            return new ReducedFraction(this._numerator - fraction._numerator, fraction._denominator);
+        return this.subtract(fraction._numerator, fraction._denominator);
     }
 
     /** Умножение двух дробей.
@@ -130,8 +130,7 @@ public class ReducedFraction {
      * @return новая перемноженная дробь
      */
     public ReducedFraction multiply(ReducedFraction fraction){
-        return new ReducedFraction(this._numerator * fraction._numerator,
-                this._denominator * fraction._denominator);
+        return this.multiply(fraction._numerator, fraction._denominator);
     }
     
     /** Деление двух дробей.
@@ -149,8 +148,7 @@ public class ReducedFraction {
      * @return новая дробь - результат деления
      */
     public ReducedFraction division(ReducedFraction fraction){
-        return new ReducedFraction(this._numerator * fraction._denominator,
-                this._denominator * fraction._numerator);
+        return this.division(fraction._numerator, fraction._denominator);
     }
 
 
@@ -159,24 +157,20 @@ public class ReducedFraction {
     /** Сравнение двух дробей.
     * @param denominator - знаменатель
      * @param numerator - числитель
-     * @return ...
+     * @return -1 - меньше, 0 - равно, 1 - больше
     */
     public int compare(int numerator, int denominator){
-        if(denominator != this._denominator)
-            return Integer.compare(this._numerator*denominator, numerator*this._denominator);
-        else
-            return Integer.compare(this._numerator, numerator);
+        return denominator != this._denominator?
+                Integer.compare(this._numerator*denominator, numerator*this._denominator):
+                Integer.compare(this._numerator, numerator);
     }
 
     /** Сравнение двух дробей.
      * @param compared - дробь для сравнения
-     * @return ...
+     * @return -1 - меньше, 0 - равно, 1 - больше
      */
     public int compare(ReducedFraction compared){
-        if(compared._denominator != this._denominator)
-            return Integer.compare(this._numerator*compared._denominator, compared._numerator*this._denominator);
-        else
-            return Integer.compare(this._numerator, compared._numerator);
+        return this.compare(compared._numerator, compared._denominator);
     }
     
     /** Эквивалентность двух дробей.
@@ -200,7 +194,8 @@ public class ReducedFraction {
     */
     @Override
     public String toString(){
-        return String.format("Numerator: %d, Denominator: %d", this._numerator, this._denominator);
+        return this._denominator == 1 ? String.format("%d", this._numerator)
+                : String.format("%d/%d", this._numerator, this._denominator);
     }
 
     /** Представить как вещественное число.
